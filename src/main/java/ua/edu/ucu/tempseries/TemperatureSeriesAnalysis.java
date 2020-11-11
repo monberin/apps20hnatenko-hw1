@@ -4,27 +4,11 @@ import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysis {
     private double[] temperatureSeries = {};
-
+    private double absZero = -273.0;
 
     public TemperatureSeriesAnalysis() {
 
     }
-
-    public void absZeroCheck(double[] temperatureSeries) {
-        for (double temperature : temperatureSeries) {
-            double absZero = -273.0;
-            if (temperature < absZero) {
-                throw new InputMismatchException();
-            }
-        }
-    }
-
-    public void checkIllegalArgument(double[] temperatureSeries) {
-        if (temperatureSeries.length == 0) {
-            throw new IllegalArgumentException();
-        }
-    }
-
 
     public TemperatureSeriesAnalysis(double[] temperatureSer) {
         absZeroCheck(temperatureSer);
@@ -39,6 +23,19 @@ public class TemperatureSeriesAnalysis {
         return sum;
     }
 
+    public void absZeroCheck(double[] temperatureSeries) {
+        for (double temperature : temperatureSeries) {
+            if (temperature < absZero) {
+                throw new InputMismatchException();
+            }
+        }
+    }
+
+    public void checkIllegalArgument(double[] temperatureSeries) {
+        if (temperatureSeries.length == 0) {
+            throw new IllegalArgumentException();
+        }
+    }
 
     public double average() {
         checkIllegalArgument(temperatureSeries);
@@ -50,7 +47,7 @@ public class TemperatureSeriesAnalysis {
         checkIllegalArgument(temperatureSeries);
         double average = average();
         for (double temperature : temperatureSeries) {
-            deviance += Math.pow(average - temperature, 2);
+            deviance += (average - temperature)*(average - temperature);
         }
         deviance = Math.sqrt(deviance / (temperatureSeries.length));
         return deviance;
@@ -65,7 +62,7 @@ public class TemperatureSeriesAnalysis {
                     extremum = temperatureSeries[i];
                 }
             }
-            else{
+            else {
                 if (temperatureSeries[i] < extremum) {
                     extremum = temperatureSeries[i];
                 }
@@ -107,7 +104,7 @@ public class TemperatureSeriesAnalysis {
         return closest;
     }
 
-    private double[] findRange(double tempValue,boolean val) {
+    private double[] findRange(double tempValue, boolean val) {
         checkIllegalArgument(temperatureSeries);
         double[] appropriate = new double[temperatureSeries.length];
         int sz = 0;
@@ -122,7 +119,7 @@ public class TemperatureSeriesAnalysis {
                     }
                 }
             }
-            else{
+            else {
                     for (double temperature : temperatureSeries) {
                         if (temperature  > tempValue) {
                             appropriate[j] = temperature;

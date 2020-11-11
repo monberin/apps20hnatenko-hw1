@@ -263,7 +263,7 @@ public class TemperatureSeriesAnalysisTest {
     public void testMoreThenValue() {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
-        double[] expResult = {3,-5,1};
+        double[] expResult = {3, -5, 1};
 
         double[] actualResult = seriesAnalysis.findTempsLessThen(4);
 
@@ -301,7 +301,7 @@ public class TemperatureSeriesAnalysisTest {
     public void testGreaterThenValue() {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
-        double[] expResult = {-5,1};
+        double[] expResult = {-5, 1};
 
         double[] actualResult = seriesAnalysis.findTempsLessThen(2);
 
