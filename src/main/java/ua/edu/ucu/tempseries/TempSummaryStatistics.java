@@ -1,10 +1,10 @@
 package ua.edu.ucu.tempseries;
 
 public class TempSummaryStatistics {
-    private double avgTemp;
-    private double devTemp;
-    private double minTemp;
-    private double maxTemp;
+    private final double avgTemp;
+    private final double devTemp;
+    private final double minTemp;
+    private final double maxTemp;
 
     public TempSummaryStatistics(TemperatureSeriesAnalysis temperatureSeriesAnalysis) {
         this.avgTemp = temperatureSeriesAnalysis.average();
