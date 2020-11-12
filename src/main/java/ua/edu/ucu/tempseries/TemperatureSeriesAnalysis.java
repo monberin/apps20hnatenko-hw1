@@ -13,7 +13,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSer) {
-        ABSZEROCheck(temperatureSer);
+        absZeroCheck(temperatureSer);
         this.temperatureSeries = temperatureSer;
     }
 
@@ -25,7 +25,7 @@ public class TemperatureSeriesAnalysis {
         return sum;
     }
 
-    public void ABSZEROCheck(double[] temperatureSeries) {
+    public void absZeroCheck(double[] temperatureSeries) {
         for (double temperature : temperatureSeries) {
             if (temperature < ABSZERO) {
                 throw new InputMismatchException();
@@ -152,7 +152,7 @@ public class TemperatureSeriesAnalysis {
 
     public int addTemps(double... temps) {
         checkIllegalArgument(temps);
-        ABSZEROCheck(temps);
+        absZeroCheck(temps);
         int len = temperatureSeries.length + temps.length;
         int capacity = temperatureSeries.length;
         while (capacity < len) {
