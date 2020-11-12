@@ -7,7 +7,7 @@ import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysisTest {
 
-    static final double delta = 0.00001;
+    static final double DELTA = 0.00001;
 
     @Test
     public void testAverageWithOneElementArray() {
@@ -20,7 +20,7 @@ public class TemperatureSeriesAnalysisTest {
         double actualResult = seriesAnalysis.average();
 
         // compare expected result with actual result
-        assertEquals(expResult, actualResult, delta);
+        assertEquals(expResult, actualResult, DELTA);
     }
 
 
@@ -42,7 +42,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double actualResult = seriesAnalysis.average();
         
-        assertEquals(expResult, actualResult, delta);
+        assertEquals(expResult, actualResult, DELTA);
     }
 
 
@@ -58,7 +58,7 @@ public class TemperatureSeriesAnalysisTest {
         double actualResult = seriesAnalysis.deviation();
 
         // compare expected result with actual result
-        assertEquals(expResult, actualResult, delta);
+        assertEquals(expResult, actualResult, DELTA);
     }
 
 
@@ -80,7 +80,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double actualResult = seriesAnalysis.deviation();
 
-        assertEquals(expResult, actualResult, delta);
+        assertEquals(expResult, actualResult, DELTA);
     }
 
 
@@ -96,7 +96,7 @@ public class TemperatureSeriesAnalysisTest {
         double actualResult = seriesAnalysis.min();
 
         // compare expected result with actual result
-        assertEquals(expResult, actualResult, delta);
+        assertEquals(expResult, actualResult, DELTA);
     }
 
 
@@ -117,7 +117,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double actualResult = seriesAnalysis.min();
 
-        assertEquals(expResult, actualResult, delta);
+        assertEquals(expResult, actualResult, DELTA);
     }
 
 
@@ -133,7 +133,7 @@ public class TemperatureSeriesAnalysisTest {
         double actualResult = seriesAnalysis.max();
 
         // compare expected result with actual result
-        assertEquals(expResult, actualResult, delta);
+        assertEquals(expResult, actualResult, DELTA);
     }
 
 
@@ -154,7 +154,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double actualResult = seriesAnalysis.max();
 
-        assertEquals(expResult, actualResult, delta);
+        assertEquals(expResult, actualResult, DELTA);
     }
 
 
@@ -170,7 +170,7 @@ public class TemperatureSeriesAnalysisTest {
         double actualResult = seriesAnalysis.findTempClosestToZero();
 
         // compare expected result with actual result
-        assertEquals(expResult, actualResult, delta);
+        assertEquals(expResult, actualResult, DELTA);
     }
 
 
@@ -192,7 +192,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double actualResult = seriesAnalysis.findTempClosestToZero();
 
-        assertEquals(expResult, actualResult, delta);
+        assertEquals(expResult, actualResult, DELTA);
     }
 
 
@@ -208,7 +208,7 @@ public class TemperatureSeriesAnalysisTest {
         double actualResult = seriesAnalysis.findTempClosestToValue(12);
 
         // compare expected result with actual result
-        assertEquals(expResult, actualResult, delta);
+        assertEquals(expResult, actualResult, DELTA);
     }
 
 
@@ -230,7 +230,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double actualResult = seriesAnalysis.findTempClosestToValue(-2);
 
-        assertEquals(expResult, actualResult, delta);
+        assertEquals(expResult, actualResult, DELTA);
     }
 
 
@@ -245,7 +245,7 @@ public class TemperatureSeriesAnalysisTest {
         double[] actualResult = seriesAnalysis.findTempsLessThen(1);
 
         // compare expected result with actual result
-        assertArrayEquals(expResult, actualResult,delta);
+        assertArrayEquals(expResult, actualResult,DELTA);
     }
 
 
@@ -268,7 +268,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double[] actualResult = seriesAnalysis.findTempsLessThen(4);
 
-        assertArrayEquals(expResult, actualResult,delta);
+        assertArrayEquals(expResult, actualResult,DELTA);
     }
 
 
@@ -283,7 +283,7 @@ public class TemperatureSeriesAnalysisTest {
         double[] actualResult = seriesAnalysis.findTempsGreaterThen(1);
 
         // compare expected result with actual result
-        assertArrayEquals(expResult, actualResult,delta);
+        assertArrayEquals(expResult, actualResult,DELTA);
     }
 
 
@@ -306,7 +306,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double[] actualResult = seriesAnalysis.findTempsLessThen(2);
 
-        assertArrayEquals(expResult, actualResult,delta);
+        assertArrayEquals(expResult, actualResult,DELTA);
     }
 
 
@@ -321,7 +321,7 @@ public class TemperatureSeriesAnalysisTest {
         double[] actualResult = seriesAnalysis.findTempsLessThen(1);
 
         // compare expected result with actual result
-        assertArrayEquals(expResult, actualResult,delta);
+        assertArrayEquals(expResult, actualResult,DELTA);
     }
 
 
@@ -343,10 +343,10 @@ public class TemperatureSeriesAnalysisTest {
 
         TempSummaryStatistics result = seriesAnalysis.summaryStatistics();
 
-        assertEquals(1.0, result.getAvgTemp(), delta);
-        assertEquals(3.7416573867739413, result.getDevTemp(), delta);
-        assertEquals(-5.0, result.getMinTemp(), delta);
-        assertEquals(5.0, result.getMaxTemp(), delta);
+        assertEquals(1.0, result.getAvgTemp(), DELTA);
+        assertEquals(3.7416573867739413, result.getDevTemp(), DELTA);
+        assertEquals(-5.0, result.getMinTemp(), DELTA);
+        assertEquals(5.0, result.getMaxTemp(), DELTA);
 
     }
 

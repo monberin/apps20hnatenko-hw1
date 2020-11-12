@@ -3,16 +3,17 @@ package ua.edu.ucu.tempseries;
 import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysis {
+    static final double ABSZERO = -273.0;
+    static final double DELTA = 0.00001;
     private double[] temperatureSeries = {};
-    static final double absZero = -273.0;
-    static final double delta = 0.00001;
+
 
     public TemperatureSeriesAnalysis() {
 
     }
 
     public TemperatureSeriesAnalysis(double[] temperatureSer) {
-        absZeroCheck(temperatureSer);
+        ABSZEROCheck(temperatureSer);
         this.temperatureSeries = temperatureSer;
     }
 
@@ -24,9 +25,9 @@ public class TemperatureSeriesAnalysis {
         return sum;
     }
 
-    public void absZeroCheck(double[] temperatureSeries) {
+    public void ABSZEROCheck(double[] temperatureSeries) {
         for (double temperature : temperatureSeries) {
-            if (temperature < absZero) {
+            if (temperature < ABSZERO) {
                 throw new InputMismatchException();
             }
         }
@@ -96,7 +97,7 @@ public class TemperatureSeriesAnalysis {
                 minDistance = distance;
                 closest = temperature;
             }
-            else if (Math.abs(distance - minDistance) < delta) {
+            else if (Math.abs(distance - minDistance) < DELTA) {
                 if (temperature > closest) {
                     closest = temperature;
                 }
@@ -151,7 +152,7 @@ public class TemperatureSeriesAnalysis {
 
     public int addTemps(double... temps) {
         checkIllegalArgument(temps);
-        absZeroCheck(temps);
+        ABSZEROCheck(temps);
         int len = temperatureSeries.length + temps.length;
         int capacity = temperatureSeries.length;
         while (capacity < len) {
