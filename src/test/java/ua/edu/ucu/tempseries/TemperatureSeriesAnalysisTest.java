@@ -2,11 +2,12 @@ package ua.edu.ucu.tempseries;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import org.junit.Ignore;
 
 import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysisTest {
+
+    static final double delta = 0.00001;
 
     @Test
     public void testAverageWithOneElementArray() {
@@ -19,7 +20,7 @@ public class TemperatureSeriesAnalysisTest {
         double actualResult = seriesAnalysis.average();
 
         // compare expected result with actual result
-        assertEquals(expResult, actualResult, 0.00001);
+        assertEquals(expResult, actualResult, delta);
     }
 
 
@@ -41,7 +42,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double actualResult = seriesAnalysis.average();
         
-        assertEquals(expResult, actualResult, 0.00001);        
+        assertEquals(expResult, actualResult, delta);
     }
 
 
@@ -57,7 +58,7 @@ public class TemperatureSeriesAnalysisTest {
         double actualResult = seriesAnalysis.deviation();
 
         // compare expected result with actual result
-        assertEquals(expResult, actualResult, 0.00001);
+        assertEquals(expResult, actualResult, delta);
     }
 
 
@@ -79,7 +80,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double actualResult = seriesAnalysis.deviation();
 
-        assertEquals(expResult, actualResult, 0.00001);
+        assertEquals(expResult, actualResult, delta);
     }
 
 
@@ -95,7 +96,7 @@ public class TemperatureSeriesAnalysisTest {
         double actualResult = seriesAnalysis.min();
 
         // compare expected result with actual result
-        assertEquals(expResult, actualResult, 0.00001);
+        assertEquals(expResult, actualResult, delta);
     }
 
 
@@ -116,7 +117,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double actualResult = seriesAnalysis.min();
 
-        assertEquals(expResult, actualResult, 0.00001);
+        assertEquals(expResult, actualResult, delta);
     }
 
 
@@ -132,7 +133,7 @@ public class TemperatureSeriesAnalysisTest {
         double actualResult = seriesAnalysis.max();
 
         // compare expected result with actual result
-        assertEquals(expResult, actualResult, 0.00001);
+        assertEquals(expResult, actualResult, delta);
     }
 
 
@@ -153,7 +154,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double actualResult = seriesAnalysis.max();
 
-        assertEquals(expResult, actualResult, 0.00001);
+        assertEquals(expResult, actualResult, delta);
     }
 
 
@@ -169,7 +170,7 @@ public class TemperatureSeriesAnalysisTest {
         double actualResult = seriesAnalysis.findTempClosestToZero();
 
         // compare expected result with actual result
-        assertEquals(expResult, actualResult, 0.00001);
+        assertEquals(expResult, actualResult, delta);
     }
 
 
@@ -191,7 +192,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double actualResult = seriesAnalysis.findTempClosestToZero();
 
-        assertEquals(expResult, actualResult, 0.00001);
+        assertEquals(expResult, actualResult, delta);
     }
 
 
@@ -207,7 +208,7 @@ public class TemperatureSeriesAnalysisTest {
         double actualResult = seriesAnalysis.findTempClosestToValue(12);
 
         // compare expected result with actual result
-        assertEquals(expResult, actualResult, 0.00001);
+        assertEquals(expResult, actualResult, delta);
     }
 
 
@@ -229,7 +230,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double actualResult = seriesAnalysis.findTempClosestToValue(-2);
 
-        assertEquals(expResult, actualResult, 0.00001);
+        assertEquals(expResult, actualResult, delta);
     }
 
 
@@ -244,7 +245,7 @@ public class TemperatureSeriesAnalysisTest {
         double[] actualResult = seriesAnalysis.findTempsLessThen(1);
 
         // compare expected result with actual result
-        assertArrayEquals(expResult, actualResult,0.00001);
+        assertArrayEquals(expResult, actualResult,delta);
     }
 
 
@@ -267,7 +268,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double[] actualResult = seriesAnalysis.findTempsLessThen(4);
 
-        assertArrayEquals(expResult, actualResult,0.00001);
+        assertArrayEquals(expResult, actualResult,delta);
     }
 
 
@@ -282,7 +283,7 @@ public class TemperatureSeriesAnalysisTest {
         double[] actualResult = seriesAnalysis.findTempsGreaterThen(1);
 
         // compare expected result with actual result
-        assertArrayEquals(expResult, actualResult,0.00001);
+        assertArrayEquals(expResult, actualResult,delta);
     }
 
 
@@ -305,7 +306,7 @@ public class TemperatureSeriesAnalysisTest {
 
         double[] actualResult = seriesAnalysis.findTempsLessThen(2);
 
-        assertArrayEquals(expResult, actualResult,0.00001);
+        assertArrayEquals(expResult, actualResult,delta);
     }
 
 
@@ -320,7 +321,7 @@ public class TemperatureSeriesAnalysisTest {
         double[] actualResult = seriesAnalysis.findTempsLessThen(1);
 
         // compare expected result with actual result
-        assertArrayEquals(expResult, actualResult,0.00001);
+        assertArrayEquals(expResult, actualResult,delta);
     }
 
 
@@ -342,10 +343,10 @@ public class TemperatureSeriesAnalysisTest {
 
         TempSummaryStatistics result = seriesAnalysis.summaryStatistics();
 
-        assertEquals(1.0, result.getAvgTemp(), 0.00001);
-        assertEquals(3.7416573867739413, result.getDevTemp(), 0.00001);
-        assertEquals(-5.0, result.getMinTemp(), 0.00001);
-        assertEquals(5.0, result.getMaxTemp(), 0.00001);
+        assertEquals(1.0, result.getAvgTemp(), delta);
+        assertEquals(3.7416573867739413, result.getDevTemp(), delta);
+        assertEquals(-5.0, result.getMinTemp(), delta);
+        assertEquals(5.0, result.getMaxTemp(), delta);
 
     }
 
@@ -366,6 +367,6 @@ public class TemperatureSeriesAnalysisTest {
         double[] temperatureSeries = {3.0, -5.0, 1.0, 5.0};
         TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
 
-        int actualResult = seriesAnalysis.addTemps(15.0, -15.0, -280.0);
+        seriesAnalysis.addTemps(15.0, -15.0, -280.0);
     }
 }

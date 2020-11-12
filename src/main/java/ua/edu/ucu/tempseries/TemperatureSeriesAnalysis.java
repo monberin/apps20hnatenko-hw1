@@ -4,7 +4,8 @@ import java.util.InputMismatchException;
 
 public class TemperatureSeriesAnalysis {
     private double[] temperatureSeries = {};
-    private double absZero = -273.0;
+    static final double absZero = -273.0;
+    static final double delta = 0.00001;
 
     public TemperatureSeriesAnalysis() {
 
@@ -95,7 +96,7 @@ public class TemperatureSeriesAnalysis {
                 minDistance = distance;
                 closest = temperature;
             }
-            else if (Math.abs(distance - minDistance) < 0.00001) {
+            else if (Math.abs(distance - minDistance) < delta) {
                 if (temperature > closest) {
                     closest = temperature;
                 }
@@ -136,11 +137,11 @@ public class TemperatureSeriesAnalysis {
 
 
     public double[] findTempsLessThen(double tempValue) {
-        return findRange(tempValue,true);
+        return findRange(tempValue, true);
     }
 
     public double[] findTempsGreaterThen(double tempValue) {
-        return findRange(tempValue,false);
+        return findRange(tempValue, false);
     }
 
     public TempSummaryStatistics summaryStatistics() {
